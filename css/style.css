@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.switch-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.day-background, .night-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #63924b, #07483a);
+    transition: 0.7s;
+}
+
+.night-background {
+    background-image: linear-gradient(to bottom, #1a1d2b, #4e5991);
+    transition: 0.7s;
+    opacity: 0;
+}
+
+.sun-container, .moon-container {
+    width: 100%;
+    height: 200px;
+}
+
+.moon-container .moon {
+    transform: translateY(150px);
+    opacity: 0;
+}
+.moon-container .moon-img {
+    transform: translateY(100px);
+    opacity: 0;
+    transition: 0.7s ;
+}
+
+
+.sun, .moon {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.7s ;
+    z-index: 9;
+}
+
+.moon, .sun {
+    top: 13%;
+}
+
+.sun-container img, .moon-container img {
+    width: 170px;
+    height: 170px;
+}
+
+.cloud {
+    position: absolute;
+    left: 62%;
+    width: 94px;
+    height: 70px;
+}
+
+.cloud1 {
+    top: 120px;
+}
+.cloud2 {
+    left: 13.7%;
+    top: 0%;
+    width: 135px;
+    height: 100px;
+}
+.cloud2-2 {
+    z-index: -1;
+}
+.cloud3 {
+    left: 74%;
+    top: 0%;
+    width: 55px;
+    height: 43px;
+}
+.cloud3-2 {
+    left: 240px;
+}
+.cloud img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.stars img {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 32%;
+    left: 70%;
+}
+
+.morning-text, .night-text {
+    position: absolute;
+    height: 50px;
+    margin-top: 200px;
+    display: flex;
+    align-items: end;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    overflow: hidden;
+    transition: 0.7s;
+    font-size: 30px;
+}
+
+.morning-text span {
+    transition: 0.7s;
+}
+
+.night-text span {
+    transform: translateY(-200px);
+    opacity: 0;
+    transition: 0.7s;
+}
+
+.Switch {
+    width: 60%;
+    height: 100px;
+    border: 4px solid white;
+    border-radius: 70px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 100px;
+}
+
+.Switch img {
+    width: 140%;
+    height: 277%;
+    margin-top: -30px;
+    margin-left: -35px;
+    transition: 0.7s ease-in-out;
+}
+
+.circle {
+    width: 75px;
+    height: 75px;
+    background-color: white;
+    position: absolute;
+    top: 8px;
+    left: 10%;
+    border-radius: 50%;
+    transition: 0.9s;
+}
+
+#switch {
+    display: none;
+}
+
+#switch:checked ~ .day-background {
+    opacity: 0;
+}
+
+#switch:checked ~ .night-background {
+    opacity: 1;
+}
+
+#switch:checked ~ .Switch img {
+    rotate: 180deg;
+}
+
+#switch:checked ~ .Switch .circle {
+    left: 58%;
+}
+
+#switch:checked ~ .morning-text span {
+    transform: translateY(200px);
+    transition: 0.7s;
+    opacity: 0;
+}
+
+#switch:checked ~ .night-text span {
+    transform: translateY(0px);
+    transition: 0.7s;
+    opacity: 1;
+}
+
+.sun-container .sun-img {
+    transition: 0.7s;
+    z-index: -1;
+}
+#switch:checked ~ .sun-container .sun-img {
+    transform: translateY(-300px);
+    opacity: 0;
+}
+#switch:checked ~ .sun-container .sun {
+    transform: translateY(-100px);
+    opacity: 0;
+}
+
+#switch:checked ~ .moon-container .moon {
+    transform: translateY(10px);
+    transition: 0.7s;
+    opacity: 1;
+}
+#switch:checked ~ .moon-container .moon-img {
+    transform: translateY(-0px);
+    transition: 0.7s;
+    opacity: 1;
+}
